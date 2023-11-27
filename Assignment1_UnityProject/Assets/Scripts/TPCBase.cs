@@ -33,12 +33,24 @@ namespace PGGE
 
         public void RepositionCamera()
         {
-            //creating a ray that connects the camera position to the player position
+            //a. creating a ray that connects the camera position to the player position
             Vector3 rayDirection = mPlayerTransform.position - mCameraTransform.position;
             Ray cameraRay = new Ray(mCameraTransform.position, rayDirection);
 
             Debug.DrawRay(mCameraTransform.position, rayDirection, Color.black);
 
+            //b. doing an intersection between this ray and the game objects in the scene, and 
+            LayerMask mask = LayerMask.GetMask("Wall");
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(cameraRay, out hit, 20.0f, mask))
+            {
+                //c. setting the camera's position to that intersected point (add a slight offset as well) to reposition the camera.
+                float offsetCam = 0.1f;
+                Vector3 newPostion = hit.point + hit.normal * offsetCam;
+                mCameraTransform.position = newPostion;
+            }
 
             //-------------------------------------------------------------------
             // Implement here.
