@@ -33,6 +33,13 @@ namespace PGGE
 
         public void RepositionCamera()
         {
+            //creating a ray that connects the camera position to the player position
+            Vector3 rayDirection = mPlayerTransform.position - mCameraTransform.position;
+            Ray cameraRay = new Ray(mCameraTransform.position, rayDirection);
+
+            Debug.DrawRay(mCameraTransform.position, rayDirection, Color.black);
+
+
             //-------------------------------------------------------------------
             // Implement here.
             //-------------------------------------------------------------------
