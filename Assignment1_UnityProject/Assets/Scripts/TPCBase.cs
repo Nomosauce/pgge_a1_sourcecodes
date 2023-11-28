@@ -25,7 +25,6 @@ namespace PGGE
             }
         }
 
-        //public object cameraConstants { get; private set; }
 
         public TPCBase(Transform cameraTransform, Transform playerTransform)
         {
@@ -40,6 +39,7 @@ namespace PGGE
 
             Vector3 playerHeadPos = mPlayerTransform.position + playerPositionOffset;
             Vector3 rayDirection = mCameraTransform.position - playerHeadPos;
+
             Ray cameraRay = new Ray(playerHeadPos, rayDirection);
 
             Debug.DrawRay(playerHeadPos, rayDirection, Color.black);
@@ -49,7 +49,7 @@ namespace PGGE
 
             RaycastHit hit;
 
-            if (Physics.Raycast(cameraRay, out hit, 2f, mask))
+            if (Physics.Raycast(cameraRay, out hit, (mCameraTransform.position - playerHeadPos).magnitude, mask))
             {
                 //c. setting the camera's position to that intersected point (add a slight offset as well) to reposition the camera.
                 Vector3 newCamPosition = hit.point;
