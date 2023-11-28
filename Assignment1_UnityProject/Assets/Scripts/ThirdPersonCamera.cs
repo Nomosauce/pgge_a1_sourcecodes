@@ -15,6 +15,7 @@ public enum CameraType
 public class ThirdPersonCamera : MonoBehaviour
 {
     public Transform mPlayer;
+    public Transform playerCenter;
 
     TPCBase mThirdPersonCamera;
     // Get from Unity Editor.
