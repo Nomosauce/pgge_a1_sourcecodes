@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a83e8c4e4529834db86bf7e454d9a31
+guid: a4bd1b1f21ca979479bbf4abb8e1a7a6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Q2_Attack2
+      name: Q2_Crouch
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 73
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
